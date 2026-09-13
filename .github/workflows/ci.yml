@@ -1,4 +1,4 @@
-name: CI - .NET 10
+name: CI - Harness Khnum
 
 on:
   pull_request:
@@ -20,11 +20,6 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      - name: Restore
-        run: dotnet restore
-
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-
-      - name: Test
-        run: dotnet test --configuration Release --no-build --verbosity normal
+      - name: Verify harness
+        shell: pwsh
+        run: ./tools/khnum.ps1 verify

@@ -1,0 +1,30 @@
+id: feature-login
+name: Autenticação e criação de sessão de login
+status: done
+boundedContext: Autenticação e Sessão
+entrypoint: POST /api/v1/auth/login
+projects:
+  - src/Khnum.Domain
+  - src/Khnum.Application
+  - src/Khnum.Infrastructure
+  - src/Khnum.Api
+tests:
+  domain:
+    - Email rejeita valores nulos, vazios e inválidos
+    - Email normaliza valores para comparação
+    - LoginSession exige expiração posterior à criação
+    - A duração da sessão é de 30 minutos
+  application:
+    - credenciais válidas criam uma sessão
+    - usuário inativo não cria uma sessão
+    - senha inválida não cria uma sessão
+    - entrada inválida não consulta o repositório
+    - falha de persistência não retorna um token
+  integration:
+    - endpoint persiste a sessão no SQLite
+    - token da resposta corresponde ao token persistido
+security:
+  - nunca revelar se um e-mail existe
+  - nunca registrar senhas, hashes ou tokens
+  - retornar um token somente depois que a persistência for concluída com sucesso
+  - Algoritmo de hash de senha de produção PBKDF2-HMAC-SHA256
