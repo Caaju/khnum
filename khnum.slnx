@@ -1,2 +1,13 @@
 <Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Khnum.Api/Khnum.Api.csproj" />
+    <Project Path="src/Khnum.Application/Khnum.Application.csproj" />
+    <Project Path="src/Khnum.Domain/Khnum.Domain.csproj" />
+    <Project Path="src/Khnum.Infrastructure/Khnum.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Khnum.Application.Tests/Khnum.Application.Tests.csproj" />
+    <Project Path="tests/Khnum.Domain.Tests/Khnum.Domain.Tests.csproj" />
+    <Project Path="tests/Khnum.IntegrationTests/Khnum.IntegrationTests.csproj" />
+  </Folder>
 </Solution>

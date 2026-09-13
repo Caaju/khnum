@@ -1,0 +1,6 @@
+@Khnum.Api_HostAddress = http://localhost:5151
+
+GET {{Khnum.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
